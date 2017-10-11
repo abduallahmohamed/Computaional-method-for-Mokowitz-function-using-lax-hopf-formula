@@ -1,0 +1,1 @@
+# Computaional-method-for-Mokowitz-function-using-lax-hopf-formula
