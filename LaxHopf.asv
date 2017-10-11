@@ -1,0 +1,41 @@
+v = 20 ;
+km = 0.2 ;
+%1)	Compute the initial density function c(0,x), using the definition of the Moskowitz function.
+ci_0 =[];
+i_k = [];
+for x =0:999
+    k = DensityMapper(x);
+    ci_0(end +1) = InitialDenisty(DensityMapper(x),x,10,0);
+end
+for x = [0.01,0.04,
+plot(ci_0);
+
+%2)	Recall the expression of the Lax-Hopf formula for this particular case (initial condition)
+
+
+
+
+function ci = InitialDenisty(ki,x,di,ti)
+%INITIALDENISTY Summary of this function goes here
+%   Detailed explanation goes here
+ti = 0;
+ci = -1*ki*x+di;
+end
+
+function k_0_x = DensityMapper(x)
+if (x>=0)&&(x<500)
+    k_0_x = 0.01;
+elseif (x>=500)&&(x<600)
+    k_0_x = 0.04;
+elseif (x>=600)&&(x<950)
+    k_0_x = 0.025;
+elseif (x>=950)&&(x<1000)
+    k_0_x = 0.02;
+end
+
+end
+function lf = LegndreFenchel(u,km,v)
+k = (km*(u+v))/(2*v);
+lf = u*k+((v/km)*k)*(km-k);
+end
+
